@@ -1,0 +1,214 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="author" content="Liu Shi"/>
+        <title>Assignment1-TodoList</title>
+        <link rel="stylesheet" type="text/css" href="mystyle.css" />
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"/>
+        <style>
+            header {
+                margin-bottom : 3%;
+                border: 1px solid #000000;
+            }
+                
+            #logo {
+                width      :33%;
+                float      :left;
+                margin-left: 10%;
+                margin-top : 0.5%;
+            }
+        
+            #pagetitle {
+                float: center;
+            }
+                
+
+           /* #container {
+                border: 1px solid #000000;
+            }*/
+                
+            #left {
+                width        : 15%; 
+                min-height   : 800px;
+                max-height   : 1200px;
+                float        : left;
+                margin-left  : 10%;
+                margin-bottom: 3%;
+                border       : 1px solid #000000;
+            }
+
+            .leftli{
+                list-style-type:none;
+                width          :100%;
+                border         : 1px solid #000000;
+            }
+            
+            button{
+                width     : 100%;
+                padding   :6%;
+                background:transparent;
+                font-size : 1.5em;
+                border    : 1px solid #000000;
+            }
+                
+            #right {
+                width        : 65%;
+                float        : right;
+                margin-right : 5%;
+                margin-bottom: 3%;
+                min-height   : 800px;
+                max-height   : 1200px;
+                border       : 1px solid #000000;
+            }                
+
+            #form {
+                margin-left :1.5%;
+                margin-right:2%;
+                padding     : 1%;
+            }
+
+            #input {
+                width  : 90%;
+                padding: 1%;
+            }
+
+            #addBtn {
+                width  : 6%;
+                padding: 1%;
+                float  : right;
+            }
+
+                
+            
+            .list {
+                list-style-type:none;
+                margin-left    :1.5%;
+                margin-right   :2%;
+                padding        :1%;
+                border         : 1px solid #000000;
+            }
+
+            table {
+                 width    :100%;
+                 font-size:2em;
+            }
+
+            .tdcheckbox {
+                width: 5%;
+
+            }
+
+            .tdcontent {
+                width: 75%; 
+            }
+
+            .tddue {
+                width: 20%;
+            }
+
+            footer {
+                width     :100%;
+                text-align:center;
+                clear     :both;
+                border    :1px solid #000000;
+            }
+
+        </style>
+    </head>
+    <body>
+        <header>
+        	<div id="logo">
+        		<a href="index.html">
+        			<img src="http://www.systemsinmotion.com/wp-content/uploads/2014/05/SIM-Logo.png" alt="Systems In Motion"/>
+        		</a>
+        	</div>
+        	<div id="pagetitle">
+        		<h1><b><i>Welcome to my TodoList</i></b></h1>
+        	</div>
+        </header>
+        
+        
+        <div id="container">
+        	<div id="left">
+        	
+        			<li class="leftli">
+        				<button>HTML</button>
+        			</li>
+        			<li class="leftli">
+        				<button>CSS</button>
+        			</li>
+        			<li class="leftli">
+        				<button>JavaScript</button>
+        			</li>
+        			<li class="leftli">
+        				<button>Ajax</button>
+        			</li>
+        			<li class="leftli">
+        				<button>jQuery</button>
+        			</li>
+        			<li class="leftli">
+        				<button>PHP</button>
+        			</li>
+        			<li class="leftli">
+        				<button>MySQL</button>
+        			</li>
+        		
+        	</div>
+        	
+        	
+        	<div id="right">
+        		<div>
+        			<form id="form">
+        				<input type="text" name="todocontent" placeholder="type the todo content here" id="input" />
+        				<input type="submit" value="add" id="addBtn" onclick="addToList()" />
+        			</form>
+        		</div>
+        		
+        		<div>
+        			<li class="list">
+        				<table>
+        					<tr>
+        						<td class="tdcheckbox"><input type="checkbox"/></td>
+        						<td class="tdcontent">do some thing</td>
+        						<td class="tddue">Wed, Oct 1st</td>
+        					</tr>
+        				</table>
+        			</li>
+        			<li class="list">
+        				<table>
+        					<tr>
+        						<td class="tdcheckbox"><input type="checkbox"/></td>
+                                <td class="tdcontent">do some thing</td>
+                                <td class="tddue">Wed, Oct 1st</td>
+        					</tr>
+        				</table>
+        			</li>
+        			<li class="list">
+        				<table>
+        					<tr>
+        						<td class="tdcheckbox"><input type="checkbox"/></td>
+                                <td class="tdcontent">do some thing</td>
+                                <td class="tddue">Wed, Oct 1st</td>
+        					</tr>
+        				</table>
+        			</li>
+        		</div>
+        	</div>
+        </div>
+        
+        
+     
+        <footer>
+        	<section>
+        		<div>
+        			<p>Copyright 2014 Systems in Motion. All rights reserved.</p>
+        		</div>
+        	</section>
+        </footer>
+       
+    </body>
+</html>

@@ -1,0 +1,103 @@
+<style>
+                header {
+                margin-bottom: 3%;
+
+                        border: 1px solid #000000;
+                }
+                
+                #logo {
+                        width:33%;
+                        float:left;
+                        margin-left: 10%;
+                        margin-top: 0.5%;
+                }
+        
+                #pagetitle {
+                        
+                        float: center;
+
+                }
+
+                
+                #left {
+                        width: 15%; 
+                        float: left;
+                margin-left: 10%;
+                
+                }
+
+            .leftli{
+                list-style-type:none;
+                width:100%;
+
+            }
+            
+            button{
+                width: 100%;
+                padding:10%;
+                background:transparent;
+                font-size: 2em;
+            }
+                
+                #right {
+                    width: 65%;
+                        float: right;
+                margin-right: 5%;
+                        
+                }
+
+            #form {
+                margin-left:1.5%;
+                margin-right:2%;
+                padding: 1%;
+            }
+
+            #input {
+                width: 90%;
+                padding: 1%;
+            }
+
+            #addBtn {
+                width: 6%;
+                padding: 1%;
+                float: right;
+            }
+
+                
+            
+            .list {
+                list-style-type:none;
+                margin-left:1.5%;
+                margin-right:2%;
+                padding:1%;
+            }
+
+            table {
+                 width: 100%;
+                 font-size:2em;
+            }
+
+            .tdcheckbox {
+                width: 5%;
+
+            }
+
+            .tdcontent {
+                width: 75%; 
+            }
+
+            .tddue {
+                width: 20%;
+            }
+            
+
+
+
+                
+                footer {
+                        width:100%;
+                        text-align: center;
+                        clear:both;
+
+                }
+        </style>
