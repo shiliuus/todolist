@@ -7,8 +7,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="author" content="Liu Shi"/>
         <title>Assignment1-TodoList</title>
-        <link rel="stylesheet" type="text/css" href="mystyle.css" />
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"/>
+        
         <style>
             header {
                 margin-bottom : 3%;
@@ -65,7 +64,7 @@
                 border       : 1px solid #000000;
             }                
 
-            #form {
+            form {
                 margin-left :1.5%;
                 margin-right:2%;
                 padding     : 1%;
@@ -82,8 +81,39 @@
                 float  : right;
             }
 
-                
+            #htmllist {
+                display: block;
+            }
+
+            #csslist {
+                display: none;
+            }
+
+            #jslist {
+                display: none;
+            }
+
+            #ajaxlist {
+                display: none;
+            }
             
+            #jquerylist {
+                display: none;
+            }
+
+            #ajaxlist {
+                display: none;
+            }
+
+            #phplist {
+                display: none;
+            }
+
+            #mysqllist {
+                display: none;
+            }
+
+
             .list {
                 list-style-type:none;
                 margin-left    :1.5%;
@@ -95,6 +125,7 @@
             table {
                  width    :100%;
                  font-size:2em;
+
             }
 
             .tdcheckbox {
@@ -118,6 +149,28 @@
             }
 
         </style>
+            
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script>
+        $(document).ready(functoin(){
+            $(":checkbox").change(function(){
+                if($(this).attr("checked")){
+                    //call the function to be fired when your box changes from unchecked to checked
+                    $(this).parent().css({"color":"red"});
+                } else {
+                    $(this).parent().style.color = "black";
+                }
+            });
+
+            $("button").click(function(){
+
+            });
+        });
+
+        function add(){
+
+        }
+        </script>
     </head>
     <body>
         <header>
@@ -162,18 +215,18 @@
         	
         	<div id="right">
         		<div>
-        			<form id="form">
+        			<form onsubmit="return add()" >
         				<input type="text" name="todocontent" placeholder="type the todo content here" id="input" />
-        				<input type="submit" value="add" id="addBtn" onclick="addToList()" />
+        				<input type="submit" value="add" id="addBtn" />
         			</form>
         		</div>
         		
-        		<div>
+        		<div id="htmllist">
         			<li class="list">
         				<table>
         					<tr>
         						<td class="tdcheckbox"><input type="checkbox"/></td>
-        						<td class="tdcontent">do some thing</td>
+        						<td class="tdcontent">HTML to do list No.1</td>
         						<td class="tddue">Wed, Oct 1st</td>
         					</tr>
         				</table>
@@ -182,7 +235,7 @@
         				<table>
         					<tr>
         						<td class="tdcheckbox"><input type="checkbox"/></td>
-                                <td class="tdcontent">do some thing</td>
+                                <td class="tdcontent">HTML to do list No.2</td>
                                 <td class="tddue">Wed, Oct 1st</td>
         					</tr>
         				</table>
@@ -191,12 +244,193 @@
         				<table>
         					<tr>
         						<td class="tdcheckbox"><input type="checkbox"/></td>
-                                <td class="tdcontent">do some thing</td>
+                                <td class="tdcontent">HTML to do list No.3</td>
                                 <td class="tddue">Wed, Oct 1st</td>
         					</tr>
         				</table>
         			</li>
         		</div>
+
+                <div id="csslist">
+                    <li class="list">
+                        <table>
+                            <tr>
+                                <td class="tdcheckbox"><input type="checkbox"/></td>
+                                <td class="tdcontent">CSS to do list No.1</td>
+                                <td class="tddue">Mon, Oct 6th</td>
+                            </tr>
+                        </table>
+                    </li>
+                    <li class="list">
+                        <table>
+                            <tr>
+                                <td class="tdcheckbox"><input type="checkbox"/></td>
+                                <td class="tdcontent">CSS to do list No.2</td>
+                                <td class="tddue">Mon, Oct 6th</td>
+                            </tr>
+                        </table>
+                    </li>
+                    <li class="list">
+                        <table>
+                            <tr>
+                                <td class="tdcheckbox"><input type="checkbox"/></td>
+                                <td class="tdcontent">CSS to do list No.3</td>
+                                <td class="tddue">Mon, Oct 6th</td>
+                            </tr>
+                        </table>
+                    </li>
+                </div>
+
+                <div id="jslist">
+                    <li class="list">
+                        <table>
+                            <tr>
+                                <td class="tdcheckbox"><input type="checkbox"/></td>
+                                <td class="tdcontent">JavaScript to do list No.1</td>
+                                <td class="tddue">Wed, Oct 8th</td>
+                            </tr>
+                        </table>
+                    </li>
+                    <li class="list">
+                        <table>
+                            <tr>
+                                <td class="tdcheckbox"><input type="checkbox"/></td>
+                                <td class="tdcontent">JavaScript to do list No.2</td>
+                                <td class="tddue">Wed, Oct 8th</td>
+                            </tr>
+                        </table>
+                    </li>
+                    <li class="list">
+                        <table>
+                            <tr>
+                                <td class="tdcheckbox"><input type="checkbox"/></td>
+                                <td class="tdcontent">JavaScript to do list No.3</td>
+                                <td class="tddue">Wed, Oct 8th</td>
+                            </tr>
+                        </table>
+                    </li>
+                </div>
+
+                <div id="ajaxlist">
+                    <li class="list">
+                        <table>
+                            <tr>
+                                <td class="tdcheckbox"><input type="checkbox"/></td>
+                                <td class="tdcontent">Ajax to do list No.1</td>
+                                <td class="tddue">Fri, Oct 10th</td>
+                            </tr>
+                        </table>
+                    </li>
+                    <li class="list">
+                        <table>
+                            <tr>
+                                <td class="tdcheckbox"><input type="checkbox"/></td>
+                                <td class="tdcontent">Ajax to do list No.2</td>
+                                <td class="tddue">Wed, Oct 10th</td>
+                            </tr>
+                        </table>
+                    </li>
+                    <li class="list">
+                        <table>
+                            <tr>
+                                <td class="tdcheckbox"><input type="checkbox"/></td>
+                                <td class="tdcontent">Ajax to do list No.3</td>
+                                <td class="tddue">Wed, Oct 10th</td>
+                            </tr>
+                        </table>
+                    </li>
+                </div>
+
+                <div id="jquerylist">
+                    <li class="list">
+                        <table>
+                            <tr>
+                                <td class="tdcheckbox"><input type="checkbox"/></td>
+                                <td class="tdcontent">jQuery to do list No.1</td>
+                                <td class="tddue">Wed, Oct 17th</td>
+                            </tr>
+                        </table>
+                    </li>
+                    <li class="list">
+                        <table>
+                            <tr>
+                                <td class="tdcheckbox"><input type="checkbox"/></td>
+                                <td class="tdcontent">jQuery to do list No.2</td>
+                                <td class="tddue">Wed, Oct 17th</td>
+                            </tr>
+                        </table>
+                    </li>
+                    <li class="list">
+                        <table>
+                            <tr>
+                                <td class="tdcheckbox"><input type="checkbox"/></td>
+                                <td class="tdcontent">jQuery to do list No.3</td>
+                                <td class="tddue">Wed, Oct 17th</td>
+                            </tr>
+                        </table>
+                    </li>
+                </div>
+
+                <div id="phplist">
+                    <li class="list">
+                        <table>
+                            <tr>
+                                <td class="tdcheckbox"><input type="checkbox"/></td>
+                                <td class="tdcontent">PHP to do list No.1</td>
+                                <td class="tddue">Mon, Oct 22nd</td>
+                            </tr>
+                        </table>
+                    </li>
+                    <li class="list">
+                        <table>
+                            <tr>
+                                <td class="tdcheckbox"><input type="checkbox"/></td>
+                                <td class="tdcontent">PHP to do list No.2</td>
+                                <td class="tddue">Mon, Oct 22nd</td>
+                            </tr>
+                        </table>
+                    </li>
+                    <li class="list">
+                        <table>
+                            <tr>
+                                <td class="tdcheckbox"><input type="checkbox"/></td>
+                                <td class="tdcontent">PHP to do list No.3</td>
+                                <td class="tddue">Mon, Oct 22nd</td>
+                            </tr>
+                        </table>
+                    </li>
+                </div>
+
+                <div id="mysqllist">
+                    <li class="list">
+                        <table>
+                            <tr>
+                                <td class="tdcheckbox"><input type="checkbox"/></td>
+                                <td class="tdcontent">MySQL to do list No.1</td>
+                                <td class="tddue">Mon, Oct 22nd</td>
+                            </tr>
+                        </table>
+                    </li>
+                    <li class="list">
+                        <table>
+                            <tr>
+                                <td class="tdcheckbox"><input type="checkbox"/></td>
+                                <td class="tdcontent">MySQL to do list No.2</td>
+                                <td class="tddue">Mon, Oct 22nd</td>
+                            </tr>
+                        </table>
+                    </li>
+                    <li class="list">
+                        <table>
+                            <tr>
+                                <td class="tdcheckbox"><input type="checkbox"/></td>
+                                <td class="tdcontent">MySQL to do list No.3</td>
+                                <td class="tddue">Mon, Oct 22nd</td>
+                            </tr>
+                        </table>
+                    </li>
+                </div>
+
         	</div>
         </div>
         
