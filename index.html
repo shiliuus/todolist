@@ -81,64 +81,54 @@
                 float  : right;
             }
 
-            #htmllist {
-                display: block;
+            #div1 {
+                display: none;
+
             }
 
-            #csslist {
+            #div2 {
                 display: none;
             }
 
-            #jslist {
+            #div3 {
                 display: none;
             }
 
-            #ajaxlist {
+            #div4 {
                 display: none;
             }
             
-            #jquerylist {
+            #div5 {
                 display: none;
             }
 
-            #ajaxlist {
+            #div6 {
                 display: none;
             }
 
-            #phplist {
-                display: none;
-            }
-
-            #mysqllist {
+            #div7 {
                 display: none;
             }
 
 
-            .list {
+            .rightli {
                 list-style-type:none;
-                margin-left    :1.5%;
-                margin-right   :2%;
-                padding        :1%;
-                border         : 1px solid #000000;
+                width: 90%;
+                margin-left: 5%;
+                margin-right: 5%;
+                font-size:2em;
             }
 
-            table {
-                 width    :100%;
-                 font-size:2em;
-
-            }
-
-            .tdcheckbox {
+            .mycheckbox {
                 width: 5%;
+             }
 
+            .mycontent {
+                float: center;
             }
 
-            .tdcontent {
-                width: 75%; 
-            }
-
-            .tddue {
-                width: 20%;
+            .mydue {
+                float: right;
             }
 
             footer {
@@ -150,298 +140,253 @@
 
         </style>
             
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="jquery-2.1.1.min.js"></script>
         <script>
-        $(document).ready(functoin(){
-            $(":checkbox").change(function(){
-                if($(this).attr("checked")){
-                    //call the function to be fired when your box changes from unchecked to checked
-                    $(this).parent().css({"color":"red"});
+         $(document).ready(function(){
+            $("input[type=checkbox]").change(function(){
+                if($(this).prop("checked")){
+                    $(this).parent().css({"color":"grey","text-decoration":"line-through"});
                 } else {
-                    $(this).parent().style.color = "black";
+                    $(this).parent().css({"color":"black"});
                 }
             });
 
-            $("button").click(function(){
+            
 
+            var current = $("#div1");
+            var showmap = {"HTML": "div1", "CSS": "div2", "JavaScript":"div3", "Ajax":"div4", "jQuery":"div5", "PHP":"div6", "MySQL":"div7"};
+            $("#left > li > button").click(function(){
+                var text = $(this).text();
+                current.hide();
+                current = $("#" + showmap[text]);
+                current.show();
+            });
+
+            $("#addBtn").click(function(){
+                var value = $("#input").val();
+                if (value) {
+                    $("#input").val("");
+                    var arr = value.split('+');
+                  
+                    var newRow = $("<li class='rightli'>");
+                    newRow.append("<input type='checkbox' class='mycheckbox' />")
+                          .append("<label class='mycontent'>" + arr[0] + "</label>")
+                          .append("<label class='mydue'>" + arr[1] + "</label>")
+                          .append("</li>");
+                    current.append(newRow);
+                }
+            });
+
+            $("#input").keyup(function(event){
+                if(event.keyCode == 13) {
+                    var value = $("#input").val();
+                if (value) {
+                    $("#input").val("");
+                    var arr = value.split('+');
+                  
+                    var newRow = $("<li class='rightli'>");
+                    newRow.append("<input type='checkbox' class='mycheckbox' />")
+                          .append("<label class='mycontent'>" + arr[0] + "</label>")
+                          .append("<label class='mydue'>" + arr[1] + "</label>")
+                          .append("</li>");
+                    current.append(newRow);
+                }
+                }
             });
         });
 
-        function add(){
 
-        }
         </script>
     </head>
     <body>
         <header>
-        	<div id="logo">
-        		<a href="index.html">
-        			<img src="http://www.systemsinmotion.com/wp-content/uploads/2014/05/SIM-Logo.png" alt="Systems In Motion"/>
-        		</a>
-        	</div>
-        	<div id="pagetitle">
-        		<h1><b><i>Welcome to my TodoList</i></b></h1>
-        	</div>
+            <div id="logo">
+                <a href="index.html">
+                    <img src="http://www.systemsinmotion.com/wp-content/uploads/2014/05/SIM-Logo.png" alt="Systems In Motion"/>
+                </a>
+            </div>
+            <div id="pagetitle">
+                <h1><b><i>Welcome to my TodoList</i></b></h1>
+            </div>
         </header>
         
         
         <div id="container">
-        	<div id="left">
-        	
-        			<li class="leftli">
-        				<button>HTML</button>
-        			</li>
-        			<li class="leftli">
-        				<button>CSS</button>
-        			</li>
-        			<li class="leftli">
-        				<button>JavaScript</button>
-        			</li>
-        			<li class="leftli">
-        				<button>Ajax</button>
-        			</li>
-        			<li class="leftli">
-        				<button>jQuery</button>
-        			</li>
-        			<li class="leftli">
-        				<button>PHP</button>
-        			</li>
-        			<li class="leftli">
-        				<button>MySQL</button>
-        			</li>
-        		
-        	</div>
-        	
-        	
-        	<div id="right">
-        		<div>
-        			<form onsubmit="return add()" >
-        				<input type="text" name="todocontent" placeholder="type the todo content here" id="input" />
-        				<input type="submit" value="add" id="addBtn" />
-        			</form>
-        		</div>
-        		
-        		<div id="htmllist">
-        			<li class="list">
-        				<table>
-        					<tr>
-        						<td class="tdcheckbox"><input type="checkbox"/></td>
-        						<td class="tdcontent">HTML to do list No.1</td>
-        						<td class="tddue">Wed, Oct 1st</td>
-        					</tr>
-        				</table>
-        			</li>
-        			<li class="list">
-        				<table>
-        					<tr>
-        						<td class="tdcheckbox"><input type="checkbox"/></td>
-                                <td class="tdcontent">HTML to do list No.2</td>
-                                <td class="tddue">Wed, Oct 1st</td>
-        					</tr>
-        				</table>
-        			</li>
-        			<li class="list">
-        				<table>
-        					<tr>
-        						<td class="tdcheckbox"><input type="checkbox"/></td>
-                                <td class="tdcontent">HTML to do list No.3</td>
-                                <td class="tddue">Wed, Oct 1st</td>
-        					</tr>
-        				</table>
-        			</li>
-        		</div>
-
-                <div id="csslist">
-                    <li class="list">
-                        <table>
-                            <tr>
-                                <td class="tdcheckbox"><input type="checkbox"/></td>
-                                <td class="tdcontent">CSS to do list No.1</td>
-                                <td class="tddue">Mon, Oct 6th</td>
-                            </tr>
-                        </table>
+            <div id="left">
+            
+                    <li class="leftli">
+                        <button>HTML</button>
                     </li>
-                    <li class="list">
-                        <table>
-                            <tr>
-                                <td class="tdcheckbox"><input type="checkbox"/></td>
-                                <td class="tdcontent">CSS to do list No.2</td>
-                                <td class="tddue">Mon, Oct 6th</td>
-                            </tr>
-                        </table>
+                    <li class="leftli">
+                        <button>CSS</button>
                     </li>
-                    <li class="list">
-                        <table>
-                            <tr>
-                                <td class="tdcheckbox"><input type="checkbox"/></td>
-                                <td class="tdcontent">CSS to do list No.3</td>
-                                <td class="tddue">Mon, Oct 6th</td>
-                            </tr>
-                        </table>
+                    <li class="leftli">
+                        <button>JavaScript</button>
                     </li>
+                    <li class="leftli">
+                        <button>Ajax</button>
+                    </li>
+                    <li class="leftli">
+                        <button>jQuery</button>
+                    </li>
+                    <li class="leftli">
+                        <button>PHP</button>
+                    </li>
+                    <li class="leftli">
+                        <button>MySQL</button>
+                    </li>
+                
+            </div>
+            
+            
+            <div id="right">
+                <div>
+                    <form id="form" onsubmit="return false">
+                        <input type="text" name="todocontent" placeholder="type the todo content here" id="input" />
+                        <input type="button" value="add" id="addBtn" />
+                    </form>
+                </div>
+                
+                <div id="div1">
+                        <li class="rightli">
+                            <input type="checkbox" class="mycheckbox" />
+                            <label class="mycontent">HTML to do list No.1</label>
+                            <label class="mydue">Wed, Oct 1st</label>
+                        </li>
+                        <li class="rightli">
+                            <input type="checkbox" class="mycheckbox"/>
+                            <label class="mycontent">HTML to do list No.2</label>
+                            <label class="mydue">Wed, Oct 1st</label>
+                        </li>
+                        <li class="rightli">
+                            <input type="checkbox" class="mycheckbox"/>
+                            <label class="mycontent">HTML to do list No.3</label>
+                            <label class="mydue">Wed, Oct 1st</label>
+                        </li>
                 </div>
 
-                <div id="jslist">
-                    <li class="list">
-                        <table>
-                            <tr>
-                                <td class="tdcheckbox"><input type="checkbox"/></td>
-                                <td class="tdcontent">JavaScript to do list No.1</td>
-                                <td class="tddue">Wed, Oct 8th</td>
-                            </tr>
-                        </table>
-                    </li>
-                    <li class="list">
-                        <table>
-                            <tr>
-                                <td class="tdcheckbox"><input type="checkbox"/></td>
-                                <td class="tdcontent">JavaScript to do list No.2</td>
-                                <td class="tddue">Wed, Oct 8th</td>
-                            </tr>
-                        </table>
-                    </li>
-                    <li class="list">
-                        <table>
-                            <tr>
-                                <td class="tdcheckbox"><input type="checkbox"/></td>
-                                <td class="tdcontent">JavaScript to do list No.3</td>
-                                <td class="tddue">Wed, Oct 8th</td>
-                            </tr>
-                        </table>
-                    </li>
+                <div id="div2">
+                        <li class="rightli">
+                            <input type="checkbox" class="mycheckbox" />
+                            <label class="mycontent">CSS to do list No.1</label>
+                            <label class="mydue">Mon, Oct 6th</label>
+                        </li>
+                        <li class="rightli">
+                            <input type="checkbox" class="mycheckbox"/>
+                            <label class="mycontent">CSS to do list No.2</label>
+                            <label class="mydue">Mon, Oct 6th</label>
+                        </li>
+                        <li class="rightli">
+                            <input type="checkbox" class="mycheckbox"/>
+                            <label class="mycontent">CSS to do list No.3</label>
+                            <label class="mydue">Mon, Oct 6th</label>
+                        </li>
+                       
                 </div>
 
-                <div id="ajaxlist">
-                    <li class="list">
-                        <table>
-                            <tr>
-                                <td class="tdcheckbox"><input type="checkbox"/></td>
-                                <td class="tdcontent">Ajax to do list No.1</td>
-                                <td class="tddue">Fri, Oct 10th</td>
-                            </tr>
-                        </table>
-                    </li>
-                    <li class="list">
-                        <table>
-                            <tr>
-                                <td class="tdcheckbox"><input type="checkbox"/></td>
-                                <td class="tdcontent">Ajax to do list No.2</td>
-                                <td class="tddue">Wed, Oct 10th</td>
-                            </tr>
-                        </table>
-                    </li>
-                    <li class="list">
-                        <table>
-                            <tr>
-                                <td class="tdcheckbox"><input type="checkbox"/></td>
-                                <td class="tdcontent">Ajax to do list No.3</td>
-                                <td class="tddue">Wed, Oct 10th</td>
-                            </tr>
-                        </table>
-                    </li>
+                <div id="div3">
+                        <li class="rightli">
+                            <input type="checkbox" class="mycheckbox" />
+                            <label class="mycontent">JavaScript to do list No.1</label>
+                            <label class="mydue">Wed, Oct 8th</label>
+                        </li>
+                        <li class="rightli">
+                            <input type="checkbox" class="mycheckbox"/>
+                            <label class="mycontent">JavaScript to do list No.2</label>
+                            <label class="mydue">Wed, Oct 8th</label>
+                        </li>
+                        <li class="rightli">
+                            <input type="checkbox" class="mycheckbox"/>
+                            <label class="mycontent">JavaScript to do list No.3</label>
+                            <label class="mydue">Wed, Oct 8th</label>
+                        </li>
                 </div>
 
-                <div id="jquerylist">
-                    <li class="list">
-                        <table>
-                            <tr>
-                                <td class="tdcheckbox"><input type="checkbox"/></td>
-                                <td class="tdcontent">jQuery to do list No.1</td>
-                                <td class="tddue">Wed, Oct 17th</td>
-                            </tr>
-                        </table>
-                    </li>
-                    <li class="list">
-                        <table>
-                            <tr>
-                                <td class="tdcheckbox"><input type="checkbox"/></td>
-                                <td class="tdcontent">jQuery to do list No.2</td>
-                                <td class="tddue">Wed, Oct 17th</td>
-                            </tr>
-                        </table>
-                    </li>
-                    <li class="list">
-                        <table>
-                            <tr>
-                                <td class="tdcheckbox"><input type="checkbox"/></td>
-                                <td class="tdcontent">jQuery to do list No.3</td>
-                                <td class="tddue">Wed, Oct 17th</td>
-                            </tr>
-                        </table>
-                    </li>
+                <div id="div4">
+                        <li class="rightli">
+                            <input type="checkbox" class="mycheckbox" />
+                            <label class="mycontent">JavaScript to do list No.1</label>
+                            <label class="mydue">Fri, Oct 10th</label>
+                        </li>
+                        <li class="rightli">
+                            <input type="checkbox" class="mycheckbox"/>
+                            <label class="mycontent">JavaScript to do list No.2</label>
+                            <label class="mydue">Fri, Oct 10th</label>
+                        </li>
+                        <li class="rightli">
+                            <input type="checkbox" class="mycheckbox"/>
+                            <label class="mycontent">JavaScript to do list No.3</label>
+                            <label class="mydue">Fri, Oct 10th</label>
+                        </li>
+                        
                 </div>
 
-                <div id="phplist">
-                    <li class="list">
-                        <table>
-                            <tr>
-                                <td class="tdcheckbox"><input type="checkbox"/></td>
-                                <td class="tdcontent">PHP to do list No.1</td>
-                                <td class="tddue">Mon, Oct 22nd</td>
-                            </tr>
-                        </table>
-                    </li>
-                    <li class="list">
-                        <table>
-                            <tr>
-                                <td class="tdcheckbox"><input type="checkbox"/></td>
-                                <td class="tdcontent">PHP to do list No.2</td>
-                                <td class="tddue">Mon, Oct 22nd</td>
-                            </tr>
-                        </table>
-                    </li>
-                    <li class="list">
-                        <table>
-                            <tr>
-                                <td class="tdcheckbox"><input type="checkbox"/></td>
-                                <td class="tdcontent">PHP to do list No.3</td>
-                                <td class="tddue">Mon, Oct 22nd</td>
-                            </tr>
-                        </table>
-                    </li>
+                <div id="div5">
+                        <li class="rightli">
+                            <input type="checkbox" class="mycheckbox" />
+                            <label class="mycontent">jQuery to do list No.1</label>
+                            <label class="mydue">Wed, Oct 17th</label>
+                        </li>
+                        <li class="rightli">
+                            <input type="checkbox" class="mycheckbox"/>
+                            <label class="mycontent">jQuery to do list No.2</label>
+                            <label class="mydue">Wed, Oct 17th</label>
+                        </li>
+                        <li class="rightli">
+                            <input type="checkbox" class="mycheckbox"/>
+                            <label class="mycontent">jQuery to do list No.3</label>
+                            <label class="mydue">Wed, Oct 17th</label>
+                        </li>
                 </div>
 
-                <div id="mysqllist">
-                    <li class="list">
-                        <table>
-                            <tr>
-                                <td class="tdcheckbox"><input type="checkbox"/></td>
-                                <td class="tdcontent">MySQL to do list No.1</td>
-                                <td class="tddue">Mon, Oct 22nd</td>
-                            </tr>
-                        </table>
-                    </li>
-                    <li class="list">
-                        <table>
-                            <tr>
-                                <td class="tdcheckbox"><input type="checkbox"/></td>
-                                <td class="tdcontent">MySQL to do list No.2</td>
-                                <td class="tddue">Mon, Oct 22nd</td>
-                            </tr>
-                        </table>
-                    </li>
-                    <li class="list">
-                        <table>
-                            <tr>
-                                <td class="tdcheckbox"><input type="checkbox"/></td>
-                                <td class="tdcontent">MySQL to do list No.3</td>
-                                <td class="tddue">Mon, Oct 22nd</td>
-                            </tr>
-                        </table>
-                    </li>
+                <div id="div6">
+                        <li class="rightli">
+                            <input type="checkbox" class="mycheckbox" />
+                            <label class="mycontent">PHP to do list No.1</label>
+                            <label class="mydue">Mon, Oct 22nd</label>
+                        </li>
+                        <li class="rightli">
+                            <input type="checkbox" class="mycheckbox"/>
+                            <label class="mycontent">PHP to do list No.2</label>
+                            <label class="mydue">Mon, Oct 22nd</label>
+                        </li>
+                        <li class="rightli">
+                            <input type="checkbox" class="mycheckbox"/>
+                            <label class="mycontent">PHP to do list No.3</label>
+                            <label class="mydue">Mon, Oct 22nd</label>
+                        </li>
+                        
                 </div>
 
-        	</div>
+                <div id="div7">
+                        <li class="rightli">
+                            <input type="checkbox" class="mycheckbox" />
+                            <label class="mycontent">MySQL to do list No.1</label>
+                            <label class="mydue">Mon, Oct 22nd</label>
+                        </li>
+                        <li class="rightli">
+                            <input type="checkbox" class="mycheckbox"/>
+                            <label class="mycontent">MySQL to do list No.2</label>
+                            <label class="mydue">Mon, Oct 22nd</label>
+                        </li>
+                        <li class="rightli">
+                            <input type="checkbox" class="mycheckbox"/>
+                            <label class="mycontent">MySQL to do list No.3</label>
+                            <label class="mydue">Mon, Oct 22nd</label>
+                        </li>
+                </div>
+
+            </div>
         </div>
         
         
      
         <footer>
-        	<section>
-        		<div>
-        			<p>Copyright 2014 Systems in Motion. All rights reserved.</p>
-        		</div>
-        	</section>
+            <section>
+                <div>
+                    <p>Copyright 2014 Systems in Motion. All rights reserved.</p>
+                </div>
+            </section>
         </footer>
        
     </body>
